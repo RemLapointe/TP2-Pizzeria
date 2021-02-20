@@ -97,6 +97,26 @@ if (pizzaTemp2.taille == "M"){
     var prixTotal = (pizzaTemp2.croute.prix + pizzaTemp2.fromages.prix + pizzaTemp2.garnitures.prix);
 }
 
+//Première pizza
+//Variable pizza temporaire pour manipulation de la pizza1
+var pizzaTemp1 = new Pizza(1, "M", listeCroute[0], listeFromages[1], listeGarnitures[1], 0,  15);
+
+//Creation de la pizza1 avec attributs de pizzaTemp1
+var pizza1 = new Pizza(pizzaTemp1.numéroPizza, pizzaTemp1.taille, pizzaTemp1.croute, pizzaTemp1.fromages, pizzaTemp1.garnitures, prixTotal, pizzaTemp1.tempsCuisson);
+
+//Deuxième Pizza
+//Variable pizza temporaire pour manipulation de la pizza2
+var pizzaTemp2 = new Pizza(2, "G", listeCroute[2], listeFromages[3], listeGarnitures[0], 0,  20);
+
+//Creation de la pizza2 avec attributs de pizzaTemp2
+var pizza2 = new Pizza(pizzaTemp2.numéroPizza, pizzaTemp2.taille, pizzaTemp2.croute, pizzaTemp2.fromages, pizzaTemp2.garnitures, prixTotal, pizzaTemp2.tempsCuisson);
+
+//Liste des pizzas
+var listePizza = [
+    {numéroPizza: pizza1.numéroPizza, taille: pizza1.taille, croute: pizza1.croute, fromages: pizza1.fromages, garnitures: pizza1.garnitures, prixTotal: pizza1.prixTotal, tempsCuisson: pizza1.tempsCuisson},
+    {numéroPizza: pizza2.numéroPizza, taille: pizza2.taille, croute: pizza2.croute, fromages: pizza2.fromages, garnitures: pizza2.garnitures, prixTotal: pizza2.prixTotal, tempsCuisson: pizza2.tempsCuisson}
+];
+
 //classe Commande
 class Commande {
     constructor(numéroCommande, dateCommande, heureCommande, pizzas, totalCommande) {
@@ -107,6 +127,11 @@ class Commande {
         this.totalCommande = totalCommande;
     }
 }
+
+//Vérification du total de la commande
+var totalCommande = pizza1.prixTotal + pizza2.prixTotal;
+//Création de la commande
+var commande1 = new Commande(1, "2/12/2021", "10:58", listePizza, totalCommande);
 
 //classe Client
 class Client {
