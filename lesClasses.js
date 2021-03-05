@@ -5,7 +5,7 @@
  */
 
  //classe Aliment
-class Aliment {
+ class Aliment {
     constructor(nom, poids) {
         this.nom = nom;
         this.poids = poids;
@@ -143,3 +143,9 @@ class Client {
         this.courriel = courriel;
     }
 }
+
+//Test
+var client1 = new Client("Lambert", "Tom", "5142356543", "ltom@gmail.com")
+console.log("Je m'appelle " + client1.nom + " " + client1.prenom);
+//Résultat attendu : Je m'appelle Tom Lambert
+//Résultat obtenu : Je m'appelle Tom Lambert
