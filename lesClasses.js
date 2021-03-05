@@ -88,6 +88,26 @@ class Pizza {
     }
 }
 
+//Première pizza
+//Variable pizza temporaire pour manipulation de la pizza1
+var pizzaTemp1 = new Pizza(1, "M", listeCroute[0], listeFromages[1], listeGarnitures[1], 0,  15);
+
+//Calcul du prix des aliments de la pizza temporaire selon la taille
+if (pizzaTemp1.taille == "M"){
+    var prixTotal = (pizzaTemp1.croute.prix + pizzaTemp1.fromages.prix + pizzaTemp1.garnitures.prix)*2;
+}else if (pizzaTemp1.taille == "G"){
+    var prixTotal = (pizzaTemp1.croute.prix + pizzaTemp1.fromages.prix + pizzaTemp1.garnitures.prix)*3;
+}else if (pizzaTemp1.taille == "P"){
+    var prixTotal = (pizzaTemp1.croute.prix + pizzaTemp1.fromages.prix + pizzaTemp1.garnitures.prix);
+}
+
+//Creation de la pizza1 avec attributs de pizzaTemp1
+var pizza1 = new Pizza(pizzaTemp1.numéroPizza, pizzaTemp1.taille, pizzaTemp1.croute, pizzaTemp1.fromages, pizzaTemp1.garnitures, prixTotal, pizzaTemp1.tempsCuisson);
+
+//Deuxième Pizza
+//Variable pizza temporaire pour manipulation de la pizza2
+var pizzaTemp2 = new Pizza(2, "G", listeCroute[2], listeFromages[3], listeGarnitures[0], 0,  20);
+
 //Calcul du prix des aliments de la pizza temporaire selon la taille
 if (pizzaTemp2.taille == "M"){
     var prixTotal = (pizzaTemp2.croute.prix + pizzaTemp2.fromages.prix + pizzaTemp2.garnitures.prix)*2;
@@ -97,17 +117,6 @@ if (pizzaTemp2.taille == "M"){
     var prixTotal = (pizzaTemp2.croute.prix + pizzaTemp2.fromages.prix + pizzaTemp2.garnitures.prix);
 }
 
-//Première pizza
-//Variable pizza temporaire pour manipulation de la pizza1
-var pizzaTemp1 = new Pizza(1, "M", listeCroute[0], listeFromages[1], listeGarnitures[1], 0,  15);
-
-//Creation de la pizza1 avec attributs de pizzaTemp1
-var pizza1 = new Pizza(pizzaTemp1.numéroPizza, pizzaTemp1.taille, pizzaTemp1.croute, pizzaTemp1.fromages, pizzaTemp1.garnitures, prixTotal, pizzaTemp1.tempsCuisson);
-
-//Deuxième Pizza
-//Variable pizza temporaire pour manipulation de la pizza2
-var pizzaTemp2 = new Pizza(2, "G", listeCroute[2], listeFromages[3], listeGarnitures[0], 0,  20);
-
 //Creation de la pizza2 avec attributs de pizzaTemp2
 var pizza2 = new Pizza(pizzaTemp2.numéroPizza, pizzaTemp2.taille, pizzaTemp2.croute, pizzaTemp2.fromages, pizzaTemp2.garnitures, prixTotal, pizzaTemp2.tempsCuisson);
 
@@ -116,6 +125,7 @@ var listePizza = [
     {numéroPizza: pizza1.numéroPizza, taille: pizza1.taille, croute: pizza1.croute, fromages: pizza1.fromages, garnitures: pizza1.garnitures, prixTotal: pizza1.prixTotal, tempsCuisson: pizza1.tempsCuisson},
     {numéroPizza: pizza2.numéroPizza, taille: pizza2.taille, croute: pizza2.croute, fromages: pizza2.fromages, garnitures: pizza2.garnitures, prixTotal: pizza2.prixTotal, tempsCuisson: pizza2.tempsCuisson}
 ];
+
 
 //classe Commande
 class Commande {
@@ -128,13 +138,24 @@ class Commande {
         this.tps = 5/100;
         this.tvq = 9.975/100;
     }
-}
 
-//Vérification du total de la commande
-var totalCommande = pizza1.prixTotal + pizza2.prixTotal;
+    calculerTpsTvq(){
+        return this.totalCommande + ((this.totalCommande * this.tps) + (this.totalCommande * this.tvq));
+    }
+
+}
+//Attribuer la valeur du total de la commande sans les taxes
+var total = 0;
+for (pizza of listePizza){
+    total += pizza.prixTotal;
+}   
+var totalCommande = total;
 
 //Création de la commande
-var commande1 = new Commande(1, "2/12/2021", "10:58", listePizza, totalCommande, tps, tvq);
+var commande1 = new Commande(1, "2/12/2021", "10:58", listePizza, totalCommande, 0, 0);
+
+//Attribuer la valeur du total de la commande avec les taxes
+commande1.totalCommande = commande1.calculerTpsTvq();
 
 //classe Client
 class Client {
