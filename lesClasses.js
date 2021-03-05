@@ -135,11 +135,10 @@ var commande1 = new Commande(1, "2/12/2021", "10:58", listePizza, totalCommande)
 
 //classe Client
 class Client {
-    constructor(nom, prenom, numeroTelephone, courriel, commande) {
+    constructor(nom, prenom, numeroTelephone, courriel) {
         this.nom = nom;
         this.prenom = prenom;
         this.numeroTelephone = numeroTelephone;
         this.courriel = courriel;
-        this.commande = commande;
     }
 }
