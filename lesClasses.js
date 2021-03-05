@@ -119,12 +119,13 @@ var listePizza = [
 
 //classe Commande
 class Commande {
-    constructor(numéroCommande, dateCommande, heureCommande, pizzas, totalCommande) {
+    constructor(numéroCommande, dateCommande, heureCommande, pizzas, totalCommande, client) {
         this.numéroCommande = numéroCommande;
         this.dateCommande = dateCommande;
         this.heureCommande = heureCommande;
         this.pizzas = pizzas;
         this.totalCommande = totalCommande;
+        this.client = client;
     }
 }
 
