@@ -75,9 +75,54 @@ var listeEpice = [
     {nom: "Piquant", poids: 0.2}
 ];
 
+//classe Taille
+class Taille {
+    constructor(nom, diamètre, facteur) {
+        this.nom = nom;
+        this.diamètre = diamètre;
+        this.facteur = facteur;
+    }
+
+    trouverDiamètre(){
+        if (this.nom == "Petit"){
+            this.diamètre = 12;
+            return this.diamètre;
+        }
+        else if (this.nom == "Medium"){
+            this.diamètre = 14;
+            return this.diamètre;
+        }
+        else if (this.nom == "Grande"){
+            this.diamètre = 16;
+            return this.diamètre;
+        }
+        else{
+            console.log("Erreur!");
+        }
+    }
+
+    trouverFacteur(){
+        if (this.nom == "Petit"){
+            this.facteur = 1;
+            return this.facteur;
+        }
+        else if (this.nom == "Medium"){
+            this.facteur = 2;
+            return this.facteur;
+        }
+        else if (this.nom == "Grande"){
+            this.facteur = 3;
+            return this.facteur;
+        }
+        else{
+            console.log("Erreur!");
+        }
+    }
+}
+
 //classe Pizza
 class Pizza {
-    constructor(numéroPizza, taille, croute, fromages, garnitures, prixTotal, tempsCuisson) {
+    constructor(numéroPizza, taille, croute, fromages, garnitures, prixTotal, tempsCuisson, facteur) {
         this.numéroPizza = numéroPizza;
         this.taille = taille;
         this.croute = croute;
@@ -85,35 +130,32 @@ class Pizza {
         this.garnitures = garnitures;
         this.prixTotal = prixTotal;
         this.tempsCuisson = tempsCuisson;
+        this.facteur = facteur;
+    }
+
+    trouverTotal(){
+        if (this.taille == "Petit"){
+            this.prixTotal = ((this.croute.prix * this.facteur) + this.fromages.prix + this.garnitures.prix)*this.facteur;
+            return this.prixTotal;
+        }
+        else if (this.taille == "Medium"){
+            this.prixTotal = (this.croute.prix + (this.fromages.prix * this.facteur) + this.garnitures.prix)*this.facteur;
+            return this.prixTotal;
+        }
+        if (this.taille == "Grande"){
+            this.prixTotal = (this.croute.prix + this.fromages.prix + (this.garnitures.prix * this.facteur))*this.facteur;
+            return this.prixTotal;
+        }
+        else{
+            this.prixTotal = "Erreur!";
+            return this.prixTotal;
+        }
     }
 }
 
-//Calcul du prix des aliments de la pizza temporaire selon la taille
-if (pizzaTemp2.taille == "M"){
-    var prixTotal = (pizzaTemp2.croute.prix + pizzaTemp2.fromages.prix + pizzaTemp2.garnitures.prix)*2;
-}else if (pizzaTemp2.taille == "G"){
-    var prixTotal = (pizzaTemp2.croute.prix + pizzaTemp2.fromages.prix + pizzaTemp2.garnitures.prix)*3;
-}else if (pizzaTemp2.taille == "P"){
-    var prixTotal = (pizzaTemp2.croute.prix + pizzaTemp2.fromages.prix + pizzaTemp2.garnitures.prix);
-}
-
-//Première pizza
-//Variable pizza temporaire pour manipulation de la pizza1
-var pizzaTemp1 = new Pizza(1, "M", listeCroute[0], listeFromages[1], listeGarnitures[1], 0,  15);
-
-//Creation de la pizza1 avec attributs de pizzaTemp1
-var pizza1 = new Pizza(pizzaTemp1.numéroPizza, pizzaTemp1.taille, pizzaTemp1.croute, pizzaTemp1.fromages, pizzaTemp1.garnitures, prixTotal, pizzaTemp1.tempsCuisson);
-
-//Deuxième Pizza
-//Variable pizza temporaire pour manipulation de la pizza2
-var pizzaTemp2 = new Pizza(2, "G", listeCroute[2], listeFromages[3], listeGarnitures[0], 0,  20);
-
-//Creation de la pizza2 avec attributs de pizzaTemp2
-var pizza2 = new Pizza(pizzaTemp2.numéroPizza, pizzaTemp2.taille, pizzaTemp2.croute, pizzaTemp2.fromages, pizzaTemp2.garnitures, prixTotal, pizzaTemp2.tempsCuisson);
-
 //Liste des pizzas
 var listePizza = [
-    {numéroPizza: pizza1.numéroPizza, taille: pizza1.taille, croute: pizza1.croute, fromages: pizza1.fromages, garnitures: pizza1.garnitures, prixTotal: pizza1.prixTotal, tempsCuisson: pizza1.tempsCuisson},
+    {numéroPizza: pizza.numéroPizza, taille: pizza.taille, croute: pizza.croute, fromages: pizza.fromages, garnitures: pizza.garnitures, prixTotal: pizza.prixTotal, tempsCuisson: pizza.tempsCuisson}, 
     {numéroPizza: pizza2.numéroPizza, taille: pizza2.taille, croute: pizza2.croute, fromages: pizza2.fromages, garnitures: pizza2.garnitures, prixTotal: pizza2.prixTotal, tempsCuisson: pizza2.tempsCuisson}
 ];
 
@@ -129,7 +171,7 @@ class Commande {
 }
 
 //Vérification du total de la commande
-var totalCommande = pizza1.prixTotal + pizza2.prixTotal;
+var totalCommande = pizza.prixTotal + pizza2.prixTotal;
 //Création de la commande
 var commande1 = new Commande(1, "2/12/2021", "10:58", listePizza, totalCommande);
 
