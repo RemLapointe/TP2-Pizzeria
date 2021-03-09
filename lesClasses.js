@@ -153,17 +153,29 @@ class Pizza {
     }
 }
 
+//Test
 //Pizza1
-
+console.log("Pizza 1: ");
+console.log("--------------------");
 var taillePizza = new Taille ("Medium");
+console.log("Le diamètre est : " + taillePizza.trouverDiamètre() + " po");
+console.log("Le facteur est : " + taillePizza.trouverFacteur());
 
 var pizza = new Pizza (1, taillePizza.nom, listeCroute[0], listeFromages[1], listeGarnitures[1], 0,  15, taillePizza.trouverFacteur());
+console.log("Prix total de la pizza est de : " + pizza.trouverTotal() + " $");
+
+//Passe une ligne
+console.log();
 
 //Pizza2
-
+console.log("Pizza 2: ");
+console.log("--------------------");
 var taillePizza2 = new Taille ("Grande");
+console.log("Le diamètre est : " + taillePizza2.trouverDiamètre() + " po");
+console.log("Le facteur est : " + taillePizza2.trouverFacteur());
 
 var pizza2 = new Pizza (1, taillePizza2.nom, listeCroute[2], listeFromages[2], listeGarnitures[2], 0,  15, taillePizza2.trouverFacteur());
+console.log("Prix total de la pizza est de : " + pizza2.trouverTotal() + " $");
 
 //Liste des pizzas
 var listePizza = [
