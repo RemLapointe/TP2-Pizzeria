@@ -153,6 +153,18 @@ class Pizza {
     }
 }
 
+//Pizza1
+
+var taillePizza = new Taille ("Medium");
+
+var pizza = new Pizza (1, taillePizza.nom, listeCroute[0], listeFromages[1], listeGarnitures[1], 0,  15, taillePizza.trouverFacteur());
+
+//Pizza2
+
+var taillePizza2 = new Taille ("Grande");
+
+var pizza2 = new Pizza (1, taillePizza2.nom, listeCroute[2], listeFromages[2], listeGarnitures[2], 0,  15, taillePizza2.trouverFacteur());
+
 //Liste des pizzas
 var listePizza = [
     {numéroPizza: pizza.numéroPizza, taille: pizza.taille, croute: pizza.croute, fromages: pizza.fromages, garnitures: pizza.garnitures, prixTotal: pizza.prixTotal, tempsCuisson: pizza.tempsCuisson}, 
