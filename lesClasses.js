@@ -186,12 +186,13 @@ var listePizza = [
 
 //classe Commande
 class Commande {
-    constructor(numéroCommande, dateCommande, heureCommande, pizzas, totalCommande) {
+    constructor(numéroCommande, dateCommande, heureCommande, pizzas, totalCommande, client) {
         this.numéroCommande = numéroCommande;
         this.dateCommande = dateCommande;
         this.heureCommande = heureCommande;
         this.pizzas = pizzas;
         this.totalCommande = totalCommande;
+        this.client = client;
     }
 
     calculerTpsTvq(){
@@ -225,11 +226,16 @@ console.log(commande1.totalCommande + " $");
 
 //classe Client
 class Client {
-    constructor(nom, prenom, numeroTelephone, courriel, commande) {
+    constructor(nom, prenom, numeroTelephone, courriel) {
         this.nom = nom;
         this.prenom = prenom;
         this.numeroTelephone = numeroTelephone;
         this.courriel = courriel;
-        this.commande = commande;
     }
 }
+
+//Test
+var client1 = new Client("Lambert", "Tom", "5142356543", "ltom@gmail.com")
+console.log("Je m'appelle " + client1.nom + " " + client1.prenom);
+//Résultat attendu : Je m'appelle Tom Lambert
+//Résultat obtenu : Je m'appelle Tom Lambert
