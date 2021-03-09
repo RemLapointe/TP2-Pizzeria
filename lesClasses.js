@@ -214,19 +214,13 @@ var totalCommande = total;
 //Création de la commande
 var commande1 = new Commande(1, "2/12/2021", "10:58", listePizza, totalCommande, 0, 0);
 
-//Attribuer la valeur du total de la commande avec les taxes
-commande1.totalCommande = commande1.calculerTpsTvq();
-
 //Passer une ligne
 console.log();
 
 //Total de la commande avec taxes
-console.log("Total de la commande avec taxes: ");
-console.log(commande1.calculerTpsTvq());
-/* console.log(commande1.totalCommande + " $"); */
-//Entrée: "commande1.totalCommande"
-//Résultat attendu: "77.03325"
-//Résultat obtenu: "77.03325"
+console.log("Total de la commande: ");
+console.log("--------------------");
+console.log("Total avec les taxes : " + Math.round(commande1.calculerTpsTvq()*100)/100 + " $");
 
 //classe Client
 class Client {
