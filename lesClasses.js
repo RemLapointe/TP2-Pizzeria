@@ -186,17 +186,19 @@ var listePizza = [
 
 //classe Commande
 class Commande {
-    constructor(numéroCommande, dateCommande, heureCommande, pizzas, totalCommande, client) {
+    constructor(numéroCommande, dateCommande, heureCommande, pizzas, totalCommande, client, tps, tvq) {
         this.numéroCommande = numéroCommande;
         this.dateCommande = dateCommande;
         this.heureCommande = heureCommande;
         this.pizzas = pizzas;
         this.totalCommande = totalCommande;
         this.client = client;
+        this.tps = 0.05;
+        this.tvq = 0.09975;
     }
 
     calculerTpsTvq(){
-        this.totalCommande + ((this.totalCommande * this.tps) + (this.totalCommande * this.tvq));
+        this.totalCommande = this.totalCommande + ((this.totalCommande * this.tps) + (this.totalCommande * this.tvq));
         return this.totalCommande;
     }
 
@@ -207,6 +209,7 @@ for (pizza of listePizza){
     total += pizza.prixTotal;
 }   
 var totalCommande = total;
+
 
 //Création de la commande
 var commande1 = new Commande(1, "2/12/2021", "10:58", listePizza, totalCommande, 0, 0);
@@ -219,7 +222,8 @@ console.log();
 
 //Total de la commande avec taxes
 console.log("Total de la commande avec taxes: ");
-console.log(commande1.totalCommande + " $");
+console.log(commande1.calculerTpsTvq());
+/* console.log(commande1.totalCommande + " $"); */
 //Entrée: "commande1.totalCommande"
 //Résultat attendu: "77.03325"
 //Résultat obtenu: "77.03325"
@@ -233,6 +237,9 @@ class Client {
         this.courriel = courriel;
     }
 }
+
+//passer une ligne
+console.log();
 
 //Test
 var client1 = new Client("Lambert", "Tom", "5142356543", "ltom@gmail.com")
