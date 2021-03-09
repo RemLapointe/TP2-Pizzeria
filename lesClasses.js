@@ -183,6 +183,7 @@ var listePizza = [
     {numéroPizza: pizza2.numéroPizza, taille: pizza2.taille, croute: pizza2.croute, fromages: pizza2.fromages, garnitures: pizza2.garnitures, prixTotal: pizza2.prixTotal, tempsCuisson: pizza2.tempsCuisson}
 ];
 
+
 //classe Commande
 class Commande {
     constructor(numéroCommande, dateCommande, heureCommande, pizzas, totalCommande) {
@@ -192,12 +193,35 @@ class Commande {
         this.pizzas = pizzas;
         this.totalCommande = totalCommande;
     }
-}
 
-//Vérification du total de la commande
-var totalCommande = pizza.prixTotal + pizza2.prixTotal;
+    calculerTpsTvq(){
+        this.totalCommande + ((this.totalCommande * this.tps) + (this.totalCommande * this.tvq));
+        return this.totalCommande;
+    }
+
+}
+//Attribuer la valeur du total de la commande sans les taxes
+var total = 0;
+for (pizza of listePizza){
+    total += pizza.prixTotal;
+}   
+var totalCommande = total;
+
 //Création de la commande
-var commande1 = new Commande(1, "2/12/2021", "10:58", listePizza, totalCommande);
+var commande1 = new Commande(1, "2/12/2021", "10:58", listePizza, totalCommande, 0, 0);
+
+//Attribuer la valeur du total de la commande avec les taxes
+commande1.totalCommande = commande1.calculerTpsTvq();
+
+//Passer une ligne
+console.log();
+
+//Total de la commande avec taxes
+console.log("Total de la commande avec taxes: ");
+console.log(commande1.totalCommande + " $");
+//Entrée: "commande1.totalCommande"
+//Résultat attendu: "77.03325"
+//Résultat obtenu: "77.03325"
 
 //classe Client
 class Client {
