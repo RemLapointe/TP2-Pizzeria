@@ -5,7 +5,7 @@
  */
 
  //classe Aliment
-class Aliment {
+ class Aliment {
     constructor(nom, poids) {
         this.nom = nom;
         this.poids = poids;
@@ -75,9 +75,54 @@ var listeEpice = [
     {nom: "Piquant", poids: 0.2}
 ];
 
+//classe Taille
+class Taille {
+    constructor(nom, diamètre, facteur) {
+        this.nom = nom;
+        this.diamètre = diamètre;
+        this.facteur = facteur;
+    }
+
+    trouverDiamètre(){
+        if (this.nom == "Petit"){
+            this.diamètre = 12;
+            return this.diamètre;
+        }
+        else if (this.nom == "Medium"){
+            this.diamètre = 14;
+            return this.diamètre;
+        }
+        else if (this.nom == "Grande"){
+            this.diamètre = 16;
+            return this.diamètre;
+        }
+        else{
+            console.log("Erreur!");
+        }
+    }
+
+    trouverFacteur(){
+        if (this.nom == "Petit"){
+            this.facteur = 1;
+            return this.facteur;
+        }
+        else if (this.nom == "Medium"){
+            this.facteur = 2;
+            return this.facteur;
+        }
+        else if (this.nom == "Grande"){
+            this.facteur = 3;
+            return this.facteur;
+        }
+        else{
+            console.log("Erreur!");
+        }
+    }
+}
+
 //classe Pizza
 class Pizza {
-    constructor(numéroPizza, taille, croute, fromages, garnitures, prixTotal, tempsCuisson) {
+    constructor(numéroPizza, taille, croute, fromages, garnitures, prixTotal, tempsCuisson, facteur) {
         this.numéroPizza = numéroPizza;
         this.taille = taille;
         this.croute = croute;
@@ -85,62 +130,76 @@ class Pizza {
         this.garnitures = garnitures;
         this.prixTotal = prixTotal;
         this.tempsCuisson = tempsCuisson;
+        this.facteur = facteur;
+    }
+
+    trouverTotal(){
+        if (this.taille == "Petit"){
+            this.prixTotal = ((this.croute.prix * this.facteur) + this.fromages.prix + this.garnitures.prix)*this.facteur;
+            return this.prixTotal;
+        }
+        else if (this.taille == "Medium"){
+            this.prixTotal = (this.croute.prix + (this.fromages.prix * this.facteur) + this.garnitures.prix)*this.facteur;
+            return this.prixTotal;
+        }
+        if (this.taille == "Grande"){
+            this.prixTotal = (this.croute.prix + this.fromages.prix + (this.garnitures.prix * this.facteur))*this.facteur;
+            return this.prixTotal;
+        }
+        else{
+            this.prixTotal = "Erreur!";
+            return this.prixTotal;
+        }
     }
 }
 
-//Première pizza
-//Variable pizza temporaire pour manipulation de la pizza1
-var pizzaTemp1 = new Pizza(1, "M", listeCroute[0], listeFromages[1], listeGarnitures[1], 0,  15);
+//Test
+//Pizza1
+console.log("Pizza 1: ");
+console.log("--------------------");
+var taillePizza = new Taille ("Medium");
+console.log("Le diamètre est : " + taillePizza.trouverDiamètre() + " po");
+console.log("Le facteur est : " + taillePizza.trouverFacteur());
 
-//Calcul du prix des aliments de la pizza temporaire selon la taille
-if (pizzaTemp1.taille == "M"){
-    var prixTotal = (pizzaTemp1.croute.prix + pizzaTemp1.fromages.prix + pizzaTemp1.garnitures.prix)*2;
-}else if (pizzaTemp1.taille == "G"){
-    var prixTotal = (pizzaTemp1.croute.prix + pizzaTemp1.fromages.prix + pizzaTemp1.garnitures.prix)*3;
-}else if (pizzaTemp1.taille == "P"){
-    var prixTotal = (pizzaTemp1.croute.prix + pizzaTemp1.fromages.prix + pizzaTemp1.garnitures.prix);
-}
+var pizza = new Pizza (1, taillePizza.nom, listeCroute[0], listeFromages[1], listeGarnitures[1], 0,  15, taillePizza.trouverFacteur());
+console.log("Prix total de la pizza est de : " + pizza.trouverTotal() + " $");
 
-//Creation de la pizza1 avec attributs de pizzaTemp1
-var pizza1 = new Pizza(pizzaTemp1.numéroPizza, pizzaTemp1.taille, pizzaTemp1.croute, pizzaTemp1.fromages, pizzaTemp1.garnitures, prixTotal, pizzaTemp1.tempsCuisson);
+//Passe une ligne
+console.log();
 
-//Deuxième Pizza
-//Variable pizza temporaire pour manipulation de la pizza2
-var pizzaTemp2 = new Pizza(2, "G", listeCroute[2], listeFromages[3], listeGarnitures[0], 0,  20);
+//Pizza2
+console.log("Pizza 2: ");
+console.log("--------------------");
+var taillePizza2 = new Taille ("Grande");
+console.log("Le diamètre est : " + taillePizza2.trouverDiamètre() + " po");
+console.log("Le facteur est : " + taillePizza2.trouverFacteur());
 
-//Calcul du prix des aliments de la pizza temporaire selon la taille
-if (pizzaTemp2.taille == "M"){
-    var prixTotal = (pizzaTemp2.croute.prix + pizzaTemp2.fromages.prix + pizzaTemp2.garnitures.prix)*2;
-}else if (pizzaTemp2.taille == "G"){
-    var prixTotal = (pizzaTemp2.croute.prix + pizzaTemp2.fromages.prix + pizzaTemp2.garnitures.prix)*3;
-}else if (pizzaTemp2.taille == "P"){
-    var prixTotal = (pizzaTemp2.croute.prix + pizzaTemp2.fromages.prix + pizzaTemp2.garnitures.prix);
-}
-
-//Creation de la pizza2 avec attributs de pizzaTemp2
-var pizza2 = new Pizza(pizzaTemp2.numéroPizza, pizzaTemp2.taille, pizzaTemp2.croute, pizzaTemp2.fromages, pizzaTemp2.garnitures, prixTotal, pizzaTemp2.tempsCuisson);
+var pizza2 = new Pizza (1, taillePizza2.nom, listeCroute[2], listeFromages[2], listeGarnitures[2], 0,  15, taillePizza2.trouverFacteur());
+console.log("Prix total de la pizza est de : " + pizza2.trouverTotal() + " $");
 
 //Liste des pizzas
 var listePizza = [
-    {numéroPizza: pizza1.numéroPizza, taille: pizza1.taille, croute: pizza1.croute, fromages: pizza1.fromages, garnitures: pizza1.garnitures, prixTotal: pizza1.prixTotal, tempsCuisson: pizza1.tempsCuisson},
+    {numéroPizza: pizza.numéroPizza, taille: pizza.taille, croute: pizza.croute, fromages: pizza.fromages, garnitures: pizza.garnitures, prixTotal: pizza.prixTotal, tempsCuisson: pizza.tempsCuisson}, 
     {numéroPizza: pizza2.numéroPizza, taille: pizza2.taille, croute: pizza2.croute, fromages: pizza2.fromages, garnitures: pizza2.garnitures, prixTotal: pizza2.prixTotal, tempsCuisson: pizza2.tempsCuisson}
 ];
 
 
 //classe Commande
 class Commande {
-    constructor(numéroCommande, dateCommande, heureCommande, pizzas, totalCommande, tps, tvq) {
+    constructor(numéroCommande, dateCommande, heureCommande, pizzas, totalCommande, client, tps, tvq) {
         this.numéroCommande = numéroCommande;
         this.dateCommande = dateCommande;
         this.heureCommande = heureCommande;
         this.pizzas = pizzas;
         this.totalCommande = totalCommande;
-        this.tps = 5/100;
-        this.tvq = 9.975/100;
+        this.client = client;
+        this.tps = 0.05;
+        this.tvq = 0.09975;
     }
 
     calculerTpsTvq(){
-        return this.totalCommande + ((this.totalCommande * this.tps) + (this.totalCommande * this.tvq));
+        this.totalCommande = this.totalCommande + ((this.totalCommande * this.tps) + (this.totalCommande * this.tvq));
+        return this.totalCommande;
     }
 
 }
@@ -151,29 +210,33 @@ for (pizza of listePizza){
 }   
 var totalCommande = total;
 
+
 //Création de la commande
 var commande1 = new Commande(1, "2/12/2021", "10:58", listePizza, totalCommande, 0, 0);
 
-//Attribuer la valeur du total de la commande avec les taxes
-commande1.totalCommande = commande1.calculerTpsTvq();
+//Passer une ligne
+console.log();
 
-//Test 1
-console.log(commande1.totalCommande);
-//Entrée: "commande1.totalCommande"
-//Résultat attendu: "77.03325"
-//Résultat obtenu: "77.03325"
+//Total de la commande avec taxes
+console.log("Total de la commande: ");
+console.log("--------------------");
+console.log("Total avec les taxes : " + Math.round(commande1.calculerTpsTvq()*100)/100 + " $");
 
 //classe Client
 class Client {
-    constructor(nom, prenom, numeroTelephone, courriel, commande) {
+    constructor(nom, prenom, numeroTelephone, courriel) {
         this.nom = nom;
         this.prenom = prenom;
         this.numeroTelephone = numeroTelephone;
         this.courriel = courriel;
-        this.commande = commande;
     }
 }
-var tailleP = new Taille("P", 12, 1);
-var tailleM = new Taille("M", 20, 2);
-var tailleG = new Taille("G", 30, 3);
-var listeTailles = [tailleP, tailleM, tailleG];
+
+//passer une ligne
+console.log();
+
+//Test
+var client1 = new Client("Lambert", "Tom", "5142356543", "ltom@gmail.com")
+console.log("Je m'appelle " + client1.nom + " " + client1.prenom);
+//Résultat attendu : Je m'appelle Tom Lambert
+//Résultat obtenu : Je m'appelle Tom Lambert
