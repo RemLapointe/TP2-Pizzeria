@@ -10,6 +10,9 @@
         this.nom = nom;
         this.poids = poids;
     }
+    lireAliments() {
+        return "nom: " + this.nom + ", poids: " + this.poids;
+    }
 }
 
 //classe Croute
@@ -19,6 +22,12 @@ class Croute extends Aliment {
         this.type = type;
         this.prix = prix;
         this.taille = taille;
+    }
+    lireCroute() {
+        return this.lireAliments() +
+            ", type: " + this.type +
+            ", taille: " + this.taille +
+            ", prix: " + this.prix;
     }
 }
 //Liste des croutes
@@ -33,7 +42,9 @@ class Fromage extends Aliment {
         super(nom, poids);
         this.prix = prix;
     }
-    
+    lireFromage() {
+        return this.lireAliments() + ", prix: " + this.prix;
+    }
 }
 //Liste des fromages
 var listeFromages = [
@@ -48,6 +59,9 @@ class Garniture extends Aliment {
     constructor(nom, poids, prix) {
         super(nom, poids);
         this.prix = prix;
+    }
+    lireGarniture() {
+        return this.lireAliments() + ", prix: " + this.prix;
     }
 }
 //Liste des garnitures
@@ -118,6 +132,10 @@ class Taille {
             console.log("Erreur!");
         }
     }
+    lireTaille() {
+        return "nom:" + this.nom + ", diametre:" + this.diametre +
+            ", facteur:" + this.facteur;
+    }
 }
 
 //classe Pizza
@@ -132,7 +150,34 @@ class Pizza {
         this.tempsCuisson = tempsCuisson;
         this.facteur = facteur;
     }
-
+    lireNom() { // on le nomme "lireNom" pour simplifier la codification
+        return "Pizza #" + this.numéroPizza;
+    }
+    lirePizza() {
+        return "numéro: " + this.numéroPizza +
+            ", taille: {" + this.taille.lireTaille() + "} " +
+            ", croûte: {" + this.croute.lireCroute() + "} " +
+            ", fromages: [" + this.lireFromages() + "] " +
+            ", garnitures: [" + this.lireGarnitures() + "] " +
+            ", prix complet: " + this.prixTotal +
+            ", temps de cuisson: " + this.tempsCuisson;
+    }
+    lireFromages() {
+        var s = "";
+        for (const i in this.fromages) {
+            s += "{" + this.fromages[i].lireFromage() + "}, ";
+        }
+        s = s.substr(0, s.length - 2);
+        return s;
+    }
+    lireGarnitures() {
+        var s = "";
+        for (const i in this.garnitures) {
+            s += "{" + this.garnitures[i].lireGarniture() + "}, ";
+        }
+        s = s.substr(0, s.length - 2);
+        return s;
+    }
     trouverTotal(){
         if (this.taille == "Petit"){
             this.prixTotal = ((this.croute.prix * this.facteur) + this.fromages.prix + this.garnitures.prix)*this.facteur;
@@ -202,6 +247,21 @@ class Commande {
         return this.totalCommande;
     }
 
+    lireCommande() {
+        return "numéro: " + this.numéroCommande +
+            ", client: {" + this.client.lireClient() + "}" +
+            ", date: " + this.dateCommande + ", heure: " + this.heureCommande +
+            ", pizzas: [" + this.lirePizzas() + "]" +
+            ", montant total: " + this.totalCommande;
+    }
+    lirePizzas() {
+        var s = "";
+        for (const i in this.pizzas) {
+            s += "{" + this.pizzas[i].lirePizza() + "}, ";
+        }
+        s = s.substr(0, s.length - 2);
+        return s;
+    }
 }
 //Attribuer la valeur du total de la commande sans les taxes
 var total = 0;
@@ -229,6 +289,10 @@ class Client {
         this.prenom = prenom;
         this.numeroTelephone = numeroTelephone;
         this.courriel = courriel;
+    }
+    lireClient() {
+        return "nom: " + this.nom + ", prénom: " + this.prenom +
+            ", téléphone: " + this.numeroTelephone + ", courriel: " + this.courriel;
     }
 }
 
