@@ -84,3 +84,30 @@ verifierCodePostal("JGP345");
 //Entrée: "JGP345"
 //Résultat attendu: "ERREUR: Entrez un code postal valide"
 //Résultat obtenu: "ERREUR: Entrez un code postal valide"
+
+
+
+function afficherOuCacher() {
+    var element = document.getElementById("sousMenu");  //Language DOM
+    if (element.className == "cache") {
+        element.classList.remove("cache");
+    } else {
+        element.classList.add("cache");
+    }
+
+    //alert("lien cliqué");
+    //console.log("lien cliqué")
+}
+
+/* 
+@param {string} selectId : id du select à charger 
+@param {object} liste : liste avec les éléments dont le nom sera chargé dans le select
+*/
+function chargerListeSelect(selectId, liste) {
+    var s = "<option></option>";
+    for (var i = 0; i < liste.length; i++) {
+        s += '<option value="' + i + '">' + liste[i].lireNom() + '</option>';
+    }
+    var element = document.getElementById("taillePizza");
+    element.innerHTML = s;
+}

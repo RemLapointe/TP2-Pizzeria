@@ -173,3 +173,7 @@ class Client {
         this.commande = commande;
     }
 }
+var tailleP = new Taille("P", 12, 1);
+var tailleM = new Taille("M", 20, 2);
+var tailleG = new Taille("G", 30, 3);
+var listeTailles = [tailleP, tailleM, tailleG];
