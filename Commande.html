@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
     <script src="lesFonctions.js"></script>
     <script src="lesClasses.js"></script>
@@ -34,9 +35,6 @@
             <td><label for="client">Client:</label></td>
             <td><select id="client" name="client">
             <option></option>
-            <option value="fausseClient1">fausseClient1</option>
-            <option value="fausseClient2">fausseClient2</option>
-            <option value="fausseClient3">fausseClient3</option>
             </select>
             </td>
         </tr>
@@ -52,9 +50,6 @@
             <td><label for="pizzas">Pizzas:</label></td>
             <td><select id="pizzas" name="pizzas">
                 <option></option>
-                <option value="pizza1">Pizza1</option>
-                <option value="pizza2">Pizza2</option>
-                <option value="pizza3">Pizza3</option>
             </select>
             </td>
             <td colspan="2"><button id="btnPlus3" type="button">+</button></td>
@@ -73,3 +68,9 @@
         </tr>
     </table>
 </body>
+<script>
+    //Charger select de tailles/croutes/fromages/garnitures à partir des listes
+    chargerListeSelect("client", listeClient);
+    chargerListeSelect("pizzas", listePizza);
+</script>
+</html>
