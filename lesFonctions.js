@@ -108,6 +108,6 @@ function chargerListeSelect(selectId, liste) {
     for (var i = 0; i < liste.length; i++) {
         s += '<option value="' + i + '">' + liste[i].lireNom() + '</option>';
     }
-    var element = document.getElementById("taillePizza");
+    var element = document.getElementById(selectId);
     element.innerHTML = s;
 }

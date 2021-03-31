@@ -36,26 +36,21 @@
         <tr>
             <td><label for="taillePizza">Taille:</label></td>
             <td><select id="taillePizza" name="taillePizza">
-                    <option></option>
-                    <option value="petite">Petite</option>
-                    <option value="moyenne">Moyenne</option>
-                    <option value="grande">Grande</option>
+                <option></option>
                 </select>
             </td>
         </tr>
         <tr>
             <td><label for="croutePizza">Croute:</label></td>
-            <td><select id="numeroCroute" name="numeroCroute">
-                    <option></option>
-                    <option value="mince">Mince</option>
-                    <option value="epaisse">Épaisse</option>
+            <td><select id="croutePizza" name="croutePizza">
+                <option></option>
                 </select>
             </td>
         </tr>
         <tr>
-            <td><label for="fromagesPizza">Fromages:</label></td>
-            <td><select id="numeroFromage" name="numeroFromage">
-                    <option></option>
+            <td><label for="fromagePizza">Fromages:</label></td>
+            <td><select id="fromagePizza" name="fromagePizza">
+                <option></option>
                 </select>
             </td>
             <td colspan="2"><button id="btnPlus1" type="button">+</button></td>
@@ -63,8 +58,8 @@
         </tr>
         <tr>
             <td><label for="garniturePizza">Garnitures:</label></td>
-            <td><select id="numeroGarniture" name="numeroGarniture">
-                    <option></option>
+            <td><select id="garniturePizza" name="garniturePizza">
+                <option></option>
                 </select>
             </td>
             <td colspan="2"><button id="btnPlus2" type="button">+</button></td>
@@ -89,18 +84,12 @@
     </table>
 </body>
 <script>
-    /* Language Javascript
-    var element = document.getElementById("taillePizza");
-    var s = "<option></option>";
-    for (var i = 0; i < listeTailles.length; i++) {
-        s += '<option value="' + i + '">' + listeTailles[i].lireNom() + '</option>';
-    }
-    //console.log(s);
-    element.innerHTML = s;
- */
-    //Charger select de tailles à partirde la liste de tailles
-    chargerListeSelect("taillePizza", listeTailles);
 
+    //Charger select de tailles/croutes/fromages/garnitures à partir des listes
+    chargerListeSelect("taillePizza", listeTaille);
+    chargerListeSelect("croutePizza", listeCroute);
+    chargerListeSelect("fromagePizza", listeFromages);
+    chargerListeSelect("garniturePizza", listeGarnitures);
 </script>
 
 </html>

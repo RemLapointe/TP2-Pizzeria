@@ -29,13 +29,16 @@ class Croute extends Aliment {
             ", taille: " + this.taille +
             ", prix: " + this.prix;
     }
+    lireNom(){
+        return this.nom;
+    }
 }
+
 //Liste des croutes
-var listeCroute = [
-    {nom: "Enfant", poids: 8, type: "mince", prix: 6, taille: "3cm"},
-    {nom: "Ado", poids: 10, type: "épaisse", prix: 8, taille: "6cm"},
-    {nom: "Adulte", poids: 12, type: "épaisse", prix: 10, taille: "8cm"}
-];
+var fausseCroute1 = new Croute ("Enfant", 8, "mince", 6, "3cm")
+var fausseCroute2 = new Croute ("Ado", 10, "épaisse", 8, "6cm")
+var fausseCroute3 = new Croute ("Adulte", 12, "épaisse", 10, "8cm")
+var listeCroute = [fausseCroute1, fausseCroute2, fausseCroute3];
 //classe fromage
 class Fromage extends Aliment {
     constructor(nom, poids, prix) {
@@ -45,14 +48,15 @@ class Fromage extends Aliment {
     lireFromage() {
         return this.lireAliments() + ", prix: " + this.prix;
     }
+    lireNom(){
+        return this.nom;
+    }
 }
 //Liste des fromages
-var listeFromages = [
-    {nom: "Parmesan", poids: 2, prix: 2},
-    {nom: "Cheddar", poids: 2, prix: 3},
-    {nom: "Brie", poids: 3, prix: 4},
-    {nom: "Mozzarella", poids: 2, prix: 3}
-];
+var fausseFromage1 = new Fromage("Parmesan", 2, 2);
+var fausseFromage2 = new Fromage("Cheddar", 2, 3);
+var fausseFromage3 = new Fromage("Mozzarella", 2, 3);
+var listeFromages = [fausseFromage1, fausseFromage2, fausseFromage3];
 
 //classe garniture
 class Garniture extends Aliment {
@@ -63,17 +67,15 @@ class Garniture extends Aliment {
     lireGarniture() {
         return this.lireAliments() + ", prix: " + this.prix;
     }
+    lireNom(){
+        return this.nom
+    }
 }
 //Liste des garnitures
-var listeGarnitures = [
-    {nom: "Poivron", poids: 2, prix: 2},
-    {nom: "Champignon", poids: 1, prix: 2 },
-    {nom: "Oignon", poids: 1, prix: 2},
-    {nom: "Jambon", poids: 2, prix: 3},
-    {nom: "Bacon", poids: 1.5, prix: 3},
-    {nom: "Pepperoni", poids: 1.5, prix: 3},
-    {nom: "Sauce Tomate", poids: 1, prix: 1}
-];
+var fausseGarniture1 = new Garniture("Poivron", 2, 3);
+var fausseGarniture2 = new Garniture("Champignon", 1, 1);
+var fausseGarniture3 = new Garniture("Oignon", 1, 2);
+var listeGarnitures = [fausseGarniture1, fausseGarniture2, fausseGarniture3];
 
 //classe Epices
 class Epices extends Aliment {
@@ -135,6 +137,9 @@ class Taille {
     lireTaille() {
         return "nom:" + this.nom + ", diametre:" + this.diametre +
             ", facteur:" + this.facteur;
+    }
+    lireNom(){
+        return this.nom;
     }
 }
 
@@ -202,12 +207,14 @@ class Pizza {
 //Pizza1
 console.log("Pizza 1: ");
 console.log("--------------------");
-var taillePizza = new Taille ("Medium");
-console.log("Le diamètre est : " + taillePizza.trouverDiamètre() + " po");
-console.log("Le facteur est : " + taillePizza.trouverFacteur());
+var taillePizzaP = new Taille ("Petite");
+var taillePizzaM = new Taille ("Medium");
+console.log("Le diamètre est : " + taillePizzaM.trouverDiamètre() + " po");
+console.log("Le facteur est : " + taillePizzaM.trouverFacteur());
 
-var pizza = new Pizza (1, taillePizza.nom, listeCroute[0], listeFromages[1], listeGarnitures[1], 0,  15, taillePizza.trouverFacteur());
-console.log("Prix total de la pizza est de : " + pizza.trouverTotal() + " $");
+var pizza1 = new Pizza (1, taillePizzaM.nom, listeCroute[0], listeFromages[1], listeGarnitures[1], 0,  15, taillePizzaM.trouverFacteur());
+var pizza3 = new Pizza (3, taillePizzaP.nom, listeCroute[2], listeFromages[1], listeGarnitures[2], 0,  15, taillePizzaP.trouverFacteur());
+console.log("Prix total de la pizza est de : " + pizza1.trouverTotal() + " $");
 
 //Passe une ligne
 console.log();
@@ -215,16 +222,19 @@ console.log();
 //Pizza2
 console.log("Pizza 2: ");
 console.log("--------------------");
-var taillePizza2 = new Taille ("Grande");
-console.log("Le diamètre est : " + taillePizza2.trouverDiamètre() + " po");
-console.log("Le facteur est : " + taillePizza2.trouverFacteur());
+var taillePizzaG = new Taille ("Grande");
+console.log("Le diamètre est : " + taillePizzaG.trouverDiamètre() + " po");
+console.log("Le facteur est : " + taillePizzaG.trouverFacteur());
 
-var pizza2 = new Pizza (1, taillePizza2.nom, listeCroute[2], listeFromages[2], listeGarnitures[2], 0,  15, taillePizza2.trouverFacteur());
+var pizza2 = new Pizza (1, taillePizzaG.nom, listeCroute[2], listeFromages[2], listeGarnitures[2], 0,  15, taillePizzaG.trouverFacteur());
 console.log("Prix total de la pizza est de : " + pizza2.trouverTotal() + " $");
+
+//Liste taille
+var listeTaille = [taillePizzaP, taillePizzaM, taillePizzaG]
 
 //Liste des pizzas
 var listePizza = [
-    {numéroPizza: pizza.numéroPizza, taille: pizza.taille, croute: pizza.croute, fromages: pizza.fromages, garnitures: pizza.garnitures, prixTotal: pizza.prixTotal, tempsCuisson: pizza.tempsCuisson}, 
+    {numéroPizza: pizza1.numéroPizza, taille: pizza1.taille, croute: pizza1.croute, fromages: pizza1.fromages, garnitures: pizza1.garnitures, prixTotal: pizza1.prixTotal, tempsCuisson: pizza1.tempsCuisson}, 
     {numéroPizza: pizza2.numéroPizza, taille: pizza2.taille, croute: pizza2.croute, fromages: pizza2.fromages, garnitures: pizza2.garnitures, prixTotal: pizza2.prixTotal, tempsCuisson: pizza2.tempsCuisson}
 ];
 
@@ -295,12 +305,9 @@ class Client {
             ", téléphone: " + this.numeroTelephone + ", courriel: " + this.courriel;
     }
 }
+var fausseClient1 = new Client("Eliot", "Billy", 4501231234, "be@mail.ca");
+var fausseClient2 = new Client("Uzumaki", "Naruto", 4507896789, "nu@mail.ca");
+var fausseClient3 = new Client("Uchiha", "Sasuke", 4501582765, "su@mail.ca");
+var listeClients = [fausseClient1, fausseClient2, fausseClient3];
 
-//passer une ligne
-console.log();
-
-//Test
-var client1 = new Client("Lambert", "Tom", "5142356543", "ltom@gmail.com")
-console.log("Je m'appelle " + client1.nom + " " + client1.prenom);
-//Résultat attendu : Je m'appelle Tom Lambert
-//Résultat obtenu : Je m'appelle Tom Lambert
+console.log(taillePizzaM.lireNom())
