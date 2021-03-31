@@ -75,6 +75,14 @@
 </body>
 <script>
     function validation(){
-        var nom = document.getElementById("nombre").value;
+        var commande = document.getElementById("numeroCommande").value;
+        var client = document.getElementById("client").value;
+        var date = document.getElementById("dateCommande").value;
+        var heure = document.getElementById("heureCommande").value;
+        var pizza = document.getElementById("pizzas").value;
+
+        if (commande == "" || client == "" || date == "" || heure =="" || pizza == ""){
+            alert("Non valide !");
+        }
     }
 </script>
