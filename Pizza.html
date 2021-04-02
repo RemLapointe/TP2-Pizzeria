@@ -53,8 +53,11 @@
                 <option></option>
                 </select>
             </td>
-            <td colspan="2"><button id="btnPlus1" type="button">+</button></td>
-            <td colspan="2"><button id="btnMoins1" type="button">-</button></td>
+            <td colspan="2"><button id="btnPlus" type="button" onclick="ajouterElement('fromagePizza', 'from')">+</button></td>
+            <td colspan="2"><button id="btnMoins" type="button" onclick="supprimerElement('from', 'listeDeFrom')">-</button></td>
+        </tr>
+        <tr>
+            <td id="from"></td>
         </tr>
         <tr>
             <td><label for="garniturePizza">Garnitures:</label></td>
@@ -62,8 +65,11 @@
                 <option></option>
                 </select>
             </td>
-            <td colspan="2"><button id="btnPlus2" type="button">+</button></td>
-            <td colspan="2"><button id="btnMoins2" type="button">-</button></td>
+            <td colspan="2"><button id="btnPlus" type="button" onclick="ajouterElement('garniturePizza', 'garn')">+</button></td>
+            <td colspan="2"><button id="btnMoins" type="button" onclick="supprimerElement('garn', 'listeDeGarn')">-</button></td>
+        </tr>
+        <tr>
+            <td id="garn"></td>
         </tr>
         <tr>
             <td><label for="cuisson">Temps cuisson:</label></td>
@@ -84,7 +90,6 @@
     </table>
 </body>
 <script>
-
     //Charger select de tailles/croutes/fromages/garnitures à partir des listes
     chargerListeSelect("taillePizza", listeTaille);
     chargerListeSelect("croutePizza", listeCroute);

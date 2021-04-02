@@ -156,7 +156,7 @@ class Pizza {
         this.facteur = facteur;
     }
     lireNom() { // on le nomme "lireNom" pour simplifier la codification
-        return "Pizza #" + this.numéroPizza;
+        return "Pizza # " + this.numéroPizza;
     }
     lirePizza() {
         return "numéro: " + this.numéroPizza +
@@ -226,17 +226,14 @@ var taillePizzaG = new Taille ("Grande");
 console.log("Le diamètre est : " + taillePizzaG.trouverDiamètre() + " po");
 console.log("Le facteur est : " + taillePizzaG.trouverFacteur());
 
-var pizza2 = new Pizza (1, taillePizzaG.nom, listeCroute[2], listeFromages[2], listeGarnitures[2], 0,  15, taillePizzaG.trouverFacteur());
+var pizza2 = new Pizza (2, taillePizzaG.nom, listeCroute[2], listeFromages[2], listeGarnitures[2], 0,  15, taillePizzaG.trouverFacteur());
 console.log("Prix total de la pizza est de : " + pizza2.trouverTotal() + " $");
 
 //Liste taille
 var listeTaille = [taillePizzaP, taillePizzaM, taillePizzaG]
 
 //Liste des pizzas
-var listePizza = [
-    {numéroPizza: pizza1.numéroPizza, taille: pizza1.taille, croute: pizza1.croute, fromages: pizza1.fromages, garnitures: pizza1.garnitures, prixTotal: pizza1.prixTotal, tempsCuisson: pizza1.tempsCuisson}, 
-    {numéroPizza: pizza2.numéroPizza, taille: pizza2.taille, croute: pizza2.croute, fromages: pizza2.fromages, garnitures: pizza2.garnitures, prixTotal: pizza2.prixTotal, tempsCuisson: pizza2.tempsCuisson}
-];
+var listePizza = [pizza1, pizza2, pizza3];
 
 
 //classe Commande
@@ -304,10 +301,16 @@ class Client {
         return "nom: " + this.nom + ", prénom: " + this.prenom +
             ", téléphone: " + this.numeroTelephone + ", courriel: " + this.courriel;
     }
+    lireNom(){
+        return this.nom
+    }
 }
 var fausseClient1 = new Client("Eliot", "Billy", 4501231234, "be@mail.ca");
 var fausseClient2 = new Client("Uzumaki", "Naruto", 4507896789, "nu@mail.ca");
 var fausseClient3 = new Client("Uchiha", "Sasuke", 4501582765, "su@mail.ca");
-var listeClients = [fausseClient1, fausseClient2, fausseClient3];
+var listeClient = [fausseClient1, fausseClient2, fausseClient3];
 
-console.log(taillePizzaM.lireNom())
+
+var listeDeFrom = []
+var listeDeGarn = []
+var listeDePizz = []
