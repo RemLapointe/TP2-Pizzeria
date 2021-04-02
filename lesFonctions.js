@@ -77,51 +77,36 @@ function chargerListeSelect(selectId, liste) {
 
 function ajouterElement(id, sonTd, laListe){
     var elem = document.getElementById(id).value
-
     if (elem == ""){
         alert("Vous devez choisir un ingrédient");
         return;
     }
 
     var liste = document.getElementById(sonTd);       //Créer item
-    var item = document.createElement("td");                //Créer liste
+    var item = document.createElement("td");                //Créer td
     var txtnode = document.createTextNode(elem + ", ");             
     item.appendChild(txtnode); 
     liste.appendChild(item);
-    if (id = "fromagePizza"){
-        listeDeFrom.push(elem)
-        console.log(listeDeFrom)
-        return;
-    }
-    if (id = "garniturePizza"){
-        listeDeGarn.push(elem)
-        console.log(listeDeGarn)
-        return;
-    }
-    if (id = "pizzas"){
-        listeDePizz.push(elem)
-        console.log(listeDePizz)
-        return;
-    }
 
+    laListe.push(elem)
+    console.log(laListe)
 }
 function supprimerElement(id){
     var suppri = document.getElementById(id);
     suppri.innerHTML = "";
-    if (id = "fromagePizza"){
-        listeDeFrom = []
-        console.log(listeDeFrom)
-        return;
-    }
-    if (id = "garniturePizza"){
-        listeDeGarn = []
-        console.log(listeDeGarn)
-        return;
-    }
-    if (id = "pizzas"){
-        listeDePizz = []
-        console.log(listeDePizz)
-        return;
+    
+    switch (id){
+        case "garn":
+            listeDeGarn = [];
+        break;
+
+        case "from":
+            listeDeFrom = [];
+        break;
+
+        case "pizz":
+            listeDePizz = [];
+        break;
     }
 }
 
