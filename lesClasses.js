@@ -310,4 +310,7 @@ var fausseClient2 = new Client("Uzumaki", "Naruto", 4507896789, "nu@mail.ca");
 var fausseClient3 = new Client("Uchiha", "Sasuke", 4501582765, "su@mail.ca");
 var listeClient = [fausseClient1, fausseClient2, fausseClient3];
 
-console.log(pizza2.lireNom())
+
+var listeDeFrom = []
+var listeDeGarn = []
+var listeDePizz = []
