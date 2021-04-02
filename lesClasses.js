@@ -100,7 +100,7 @@ class Taille {
     }
 
     trouverDiamètre(){
-        if (this.nom == "Petit"){
+        if (this.nom == "Petite"){
             this.diamètre = 12;
             return this.diamètre;
         }

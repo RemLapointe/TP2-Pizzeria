@@ -53,21 +53,22 @@
 </body>
 <script>
     function validation(){
-       var nom = document.getElementById("nomGarniture").value;
-       var poids = document.getElementById("poidsGarniture").value;
-       var prix = document.getElementById("prixGarniture").value;
-
-
-       if(nom == "" || poids == "" || prix == ""){
-          alert("Non valide!"); 
-       }
-   }
-
-   function soumettre(){
         var nom = document.getElementById("nomGarniture").value;
         var poids = document.getElementById("poidsGarniture").value;
         var prix = document.getElementById("prixGarniture").value;
-   }
+
+        if(nom == "" || poids == "" || prix == ""){
+            alert("Non valide!"); 
+        }
+    }
+
+    function soumettre(){
+        var nom = document.getElementById("nomGarniture").value;
+        var poids = document.getElementById("poidsGarniture").value;
+        var prix = document.getElementById("prixGarniture").value;
+
+        var garniture1 = new Garniture(nom, poids, prix);
+    }
 </script>
 
 </html>

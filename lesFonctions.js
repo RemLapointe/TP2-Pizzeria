@@ -10,22 +10,11 @@ function verifierNumeroDeTelephone(numero) {
         return true;
     }
     else {
+        alert("Numéro de téléphone invalide");
         console.log("ERREUR: Entrez un numéro valide!");
         return false;
     }
 }
-
-//Test 1
-verifierNumeroDeTelephone("222333444");
-//Entrée: "222333444"
-//Résultat attendu: "ERREUR: Entrez un numéro valide!"
-//Résultat obtenu: "ERREUR: Entrez un numéro valide!"
-
-//Test 2
-verifierNumeroDeTelephone("2223334444");
-//Entrée: "2223334444"
-//Résultat attendu: ""Numero accepté!"
-//Résultat obtenu: "Numero accepté!"
 
 //Fonction de vérification des entiers
 function verifierEntier(entier) {
@@ -38,18 +27,6 @@ function verifierEntier(entier) {
         return false;
     }
 }
-
-//Test 3
-verifierEntier("123");
-//Entrée: "123"
-//Résultat attendu: "Entier accepté!"
-//Résultat obtenu: "Entier accepté!"
-
-//Test 4
-verifierEntier("3.2");
-//Entrée: "3.2"
-//Résultat attendu: "ERREUR: Entrez un entier"
-//Résultat obtenu: "ERREUR: Entrez un entier"
 
 //Fonction de vérification du code postal
 function verifierCodePostal(codePostal) {
@@ -72,20 +49,6 @@ function verifierCodePostal(codePostal) {
     }
 
 }
-
-//Test 5
-verifierCodePostal("J3G4P5");
-//Entrée: "J3G4P5"
-//Résultat attendu: "Le code postal est accepté!"
-//Résultat obtenu: "Le code postal est accepté!"
-
-//Test 6
-verifierCodePostal("JGP345");
-//Entrée: "JGP345"
-//Résultat attendu: "ERREUR: Entrez un code postal valide"
-//Résultat obtenu: "ERREUR: Entrez un code postal valide"
-
-
 
 function afficherOuCacher() {
     var element = document.getElementById("sousMenu");  //Language DOM
