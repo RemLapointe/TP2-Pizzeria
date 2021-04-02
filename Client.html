@@ -60,7 +60,19 @@
         var courriel = document.getElementById("courrClient").value;
 
         if(prenom == "" || nom == "" || tel == "" || courriel == ""){
-           alert("Non valide!"); 
+           alert("Non valide!");
+           if(prenom ==""){
+               console.log("Erreur: Le champ prénom vide")
+           }
+           if(nom ==""){
+               console.log("Erreur: Le champ nom vide")
+           } 
+           if(tel ==""){
+               console.log("Erreur: Le champ téléphone vide")
+           }
+           if(courriel ==""){
+               console.log("Erreur: Le champ courriel vide")
+           }   
         }
     }
 
