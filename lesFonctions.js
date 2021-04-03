@@ -109,4 +109,3 @@ function supprimerElement(id){
         break;
     }
 }
-

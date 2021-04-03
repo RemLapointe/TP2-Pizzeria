@@ -50,6 +50,11 @@
             <td colspan="2"><button id="btn2" type="button" onclick="soumettre()">Soumettre</button></td>
         </tr>
     </table>
+    <table>
+        <tr id="tr1.3"></tr>
+        <tr id="tr2.3"></tr>
+        <tr id="tr3.3"></tr>
+    </table>
 </body>
 <script>
     function validation(){
@@ -57,17 +62,23 @@
         var poids = document.getElementById("poidsGarniture").value;
         var prix = document.getElementById("prixGarniture").value;
 
+        var maLigne1 = document.getElementById("tr1.3");
+        var maLigne2 = document.getElementById("tr2.3");
+        var maLigne3 = document.getElementById("tr3.3");
+        maLigne1.innerHTML = ""
+        maLigne2.innerHTML = ""
+        maLigne3.innerHTML = ""
         if(nom == "" || poids == "" || prix == ""){
             alert("Non valide!"); 
         }
         if(nom ==""){
-           console.log("Erreur: Le champ nom vide")
+            maLigne1.innerHTML = "Erreur: Le champ nom vide"
         } 
         if(poids ==""){
-           console.log("Erreur: Le champ poids vide")
+            maLigne2.innerHTML = "Erreur: Le champ poids vide"
         } 
         if(prix ==""){
-           console.log("Erreur: Le champ prix vide")
+            maLigne3.innerHTML = "Erreur: Le champ prix vide"
         } 
     }
 

@@ -70,6 +70,13 @@
             <td colspan="2"><button id="btn2" type="button" onclick="soumettre()">Soumettre</button></td>
         </tr>
     </table>
+    <table>
+        <tr id="tr1.1"></tr>
+        <tr id="tr2.1"></tr>
+        <tr id="tr3.1"></tr>
+        <tr id="tr4.1"></tr>
+        <tr id="tr5.1"></tr>
+    </table>
 </body>
 <script>
     //Charger select de tailles/croutes/fromages/garnitures à partir des listes
@@ -83,23 +90,33 @@
         var heure = document.getElementById("heureCommande").value;
         var pizza = document.getElementById("pizzas").value;
 
+        var maLigne1 = document.getElementById("tr1.1");
+        var maLigne2 = document.getElementById("tr2.1");
+        var maLigne3 = document.getElementById("tr3.1");
+        var maLigne4 = document.getElementById("tr4.1");
+        var maLigne5 = document.getElementById("tr5.1");
+        maLigne1.innerHTML = ""
+        maLigne2.innerHTML = ""
+        maLigne3.innerHTML = ""
+        maLigne4.innerHTML = ""
+        maLigne5.innerHTML = ""
         if (commande == "" || client == "" || date == "" || heure =="" || pizza == ""){
             alert("Non valide !");
         }
         if(commande ==""){
-           console.log("Erreur: Le champ commande vide")
+            maLigne1.innerHTML = "Erreur: Le champ commande vide"
         }
         if(client ==""){
-           console.log("Erreur: Le champ client vide")
+            maLigne2.innerHTML = "Erreur: Le champ client vide"
         } 
         if(date ==""){
-           console.log("Erreur: Le champ date vide")
+            maLigne3.innerHTML = "Erreur: Le champ date vide"
         } 
         if(heure ==""){
-           console.log("Erreur: Le champ heure vide")
+            maLigne4.innerHTML = "Erreur: Le champ heure vide"
         } 
-        if(pizza ==""){
-           console.log("Erreur: Le champ pizza vide")
+        if(pizza ==""){;
+            maLigne5.innerHTML = "Erreur: Le champ pizza vide"
         }  
     }
 
