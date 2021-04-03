@@ -54,6 +54,7 @@
         <tr id="tr1.3"></tr>
         <tr id="tr2.3"></tr>
         <tr id="tr3.3"></tr>
+        <tr id="tr4.3"></tr>
     </table>
 </body>
 <script>
@@ -65,9 +66,11 @@
         var maLigne1 = document.getElementById("tr1.3");
         var maLigne2 = document.getElementById("tr2.3");
         var maLigne3 = document.getElementById("tr3.3");
+        var maLigne4 = document.getElementById("tr4.3");
         maLigne1.innerHTML = ""
         maLigne2.innerHTML = ""
         maLigne3.innerHTML = ""
+        maLigne4.innerHTML = ""
         if(nom == "" || poids == "" || prix == ""){
             alert("Non valide!"); 
         }
@@ -80,6 +83,9 @@
         if(prix ==""){
             maLigne3.innerHTML = "Erreur: Le champ prix vide"
         } 
+        if (verifierEntier(poids) == false){
+            maLigne4.innerHTML = "Erreur: Le champ poids doit être un entier"
+        }
     }
 
     function soumettre(){

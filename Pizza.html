@@ -95,6 +95,8 @@
         <tr id="tr4"></tr>
         <tr id="tr5"></tr>
         <tr id="tr6"></tr>
+        <tr id="tr7"></tr>
+        <tr id="tr8"></tr>
     </table>
 </body>
 <script>
@@ -118,12 +120,16 @@
         var maLigne4 = document.getElementById("tr4");
         var maLigne5 = document.getElementById("tr5");
         var maLigne6 = document.getElementById("tr6");
+        var maLigne7 = document.getElementById("tr7");
+        var maLigne8 = document.getElementById("tr8");
         maLigne1.innerHTML = ""
         maLigne2.innerHTML = ""
         maLigne3.innerHTML = ""
         maLigne4.innerHTML = ""
         maLigne5.innerHTML = ""
         maLigne6.innerHTML = ""
+        maLigne7.innerHTML = ""
+        maLigne8.innerHTML = ""
 
         if(numero == "" || taille == "" || croute == "" || fromage == "" || garniture == "" || cuisson == ""){
            alert("Non valide!"); 
@@ -146,7 +152,12 @@
         if(cuisson ==""){
             maLigne6.innerHTML = "Erreur: Le champ cuisson vide"
         } 
-
+        if (verifierEntier(numero) == false){
+            maLigne7.innerHTML = "Erreur: Le champ numero doit être un entier"
+        }
+        if (verifierEntier(cuisson) == false){
+            maLigne8.innerHTML = "Erreur: Le champ temps cuisson doit être un entier"
+        }
     }
 
     function soumettre(){

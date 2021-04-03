@@ -19,7 +19,7 @@ function verifierNumeroDeTelephone(numero) {
 //Fonction de vérification des entiers
 function verifierEntier(entier) {
     if (!isNaN(entier) && Number.isInteger(parseFloat(entier))) {
-        console.log("Entier accepté!");
+        /* console.log("Entier accepté!"); */
         return true;
     }
     else {

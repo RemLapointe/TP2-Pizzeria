@@ -51,7 +51,7 @@
         </tr>
         <tr>
             <td><label for="prixCroute">Prix:</label></td>
-            <td><input id="prixCroute" name="prixCroute" readonly></input></td>
+            <td><input id="prixCroute" name="prixCroute"></input></td>
         </tr>
         <tr>
             <td><label for="tailleCroute">Taille:</label></td>
@@ -75,6 +75,8 @@
         <tr id="tr2.5"></tr>
         <tr id="tr3.5"></tr>
         <tr id="tr4.5"></tr>
+        <tr id="tr5.5"></tr>
+        <tr id="tr6.5"></tr>
     </table>
 </body>
 <script>
@@ -89,10 +91,14 @@
         var maLigne2 = document.getElementById("tr2.5");
         var maLigne3 = document.getElementById("tr3.5");
         var maLigne4 = document.getElementById("tr4.5");
+        var maLigne5 = document.getElementById("tr5.5");
+        var maLigne6 = document.getElementById("tr6.5");
         maLigne1.innerHTML = ""
         maLigne2.innerHTML = ""
         maLigne3.innerHTML = ""
         maLigne4.innerHTML = ""
+        maLigne5.innerHTML = ""
+        maLigne6.innerHTML = ""
         if(nom == "" || poids == "" || type == "" || taille == ""){
             alert("Non valide!"); 
         }
@@ -108,6 +114,12 @@
         if(taille ==""){
             maLigne4.innerHTML = "Erreur: Le champ taille vide"
         }  
+        if(prix ==""){
+            maLigne6.innerHTML = "Erreur: Le champ prix vide"
+        }
+        if (verifierEntier(poids) == false){
+            maLigne5.innerHTML = "Erreur: Le champ poids doit être un entier"
+        }
     }
 
     function soumettre(){

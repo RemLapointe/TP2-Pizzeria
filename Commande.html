@@ -76,6 +76,7 @@
         <tr id="tr3.1"></tr>
         <tr id="tr4.1"></tr>
         <tr id="tr5.1"></tr>
+        <tr id="tr6.1"></tr>
     </table>
 </body>
 <script>
@@ -95,11 +96,13 @@
         var maLigne3 = document.getElementById("tr3.1");
         var maLigne4 = document.getElementById("tr4.1");
         var maLigne5 = document.getElementById("tr5.1");
+        var maLigne6 = document.getElementById("tr6.1");
         maLigne1.innerHTML = ""
         maLigne2.innerHTML = ""
         maLigne3.innerHTML = ""
         maLigne4.innerHTML = ""
         maLigne5.innerHTML = ""
+        maLigne6.innerHTML = ""
         if (commande == "" || client == "" || date == "" || heure =="" || pizza == ""){
             alert("Non valide !");
         }
@@ -118,6 +121,9 @@
         if(pizza ==""){;
             maLigne5.innerHTML = "Erreur: Le champ pizza vide"
         }  
+        if (verifierEntier(commande) == false){
+            maLigne6.innerHTML = "Erreur: Le champ numéro doit être un entier"
+        }
     }
 
     function soumettre(){
