@@ -32,13 +32,10 @@ def rediriger():
 def croute():
     retourCroute = ""
 
-
     if request.method == "POST":
         crouteJson = json.loads(request.form["instanceCroute"])         #json.loads -> met string en objet
-        #print(crouteJson)
 
         ajouterObject(crouteJson, "croutes.json")
-
 
         if crouteJson['nom'] != "" and crouteJson['prix'] != "" and crouteJson['poids'] != "" and crouteJson["type"] != "":
             retourCroute = 'Croute enregistré'
@@ -54,6 +51,7 @@ def croute():
 @app.route("/fromage", methods=["POST", "GET"])
 def fromage():
     retourFromage = ""
+
     if request.method == "POST":
         fromageJson = json.loads(request.form["instanceFromage"])
         
@@ -72,6 +70,7 @@ def fromage():
 @app.route("/garniture", methods=["POST", "GET"])
 def garniture():
     retourGarniture = ""
+
     if request.method == "POST":
         garnitureJson = json.loads(request.form["instanceGarniture"])
         
@@ -89,6 +88,7 @@ def garniture():
 @app.route("/client", methods=["POST", "GET"])
 def client():
     retourClient = ""
+
     if request.method == "POST":
         clientJson = json.loads(request.form["instanceClient"])
         
@@ -156,7 +156,6 @@ def commande():
     listePizzas = obtenirListe("pizzas.json")
     listeClients = obtenirListe("clients.json")
     
-
     if request.method == "POST":
         commandeJson = json.loads(request.form["instanceCommande"])         #json.loads -> met string en objet
 
@@ -166,7 +165,6 @@ def commande():
 
     
         prixCommande = prixCommande + (14.975 * prixCommande / 100)
-
 
         ajouterObject(commandeJson, "commandes.json")
 

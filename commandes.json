@@ -1,3 +1,45 @@
 [
-    
+    {
+        "numero": "4",
+        "client": {
+            "nom": "Lapointe",
+            "prenom": "Remi",
+            "telephone": "432432432",
+            "courriel": "rl@gmail.com"
+        },
+        "date": "33",
+        "heure": "33",
+        "pizzas": [
+            {
+                "numero": "4",
+                "taille": {
+                    "nom": "G",
+                    "diametre": 30,
+                    "facteur": 3
+                },
+                "croute": {
+                    "nom": "fromage",
+                    "poids": 2,
+                    "type": "epaisse",
+                    "prix": 3
+                },
+                "fromages": [
+                    {
+                        "nom": "Mozzarela",
+                        "poids": 2,
+                        "prix": 5
+                    }
+                ],
+                "garnitures": [
+                    {
+                        "nom": "saucisses",
+                        "poids": 2,
+                        "prix": 4
+                    }
+                ],
+                "tempsCuisson": "12",
+                "prixComplet": 12
+            }
+        ]
+    }
 ]

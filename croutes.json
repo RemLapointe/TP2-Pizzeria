@@ -10,5 +10,11 @@
         "poids": 3,
         "type": "epaisse",
         "prix": 4
+    },
+    {
+        "nom": "fromage",
+        "poids": 2,
+        "type": "epaisse",
+        "prix": 3
     }
 ]
