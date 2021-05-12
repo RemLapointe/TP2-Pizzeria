@@ -1,0 +1,14 @@
+[
+    {
+        "nom": "S\u00e9same",
+        "poids": 2,
+        "type": "epaisse",
+        "prix": 4
+    },
+    {
+        "nom": "Farci",
+        "poids": 3,
+        "type": "epaisse",
+        "prix": 4
+    }
+]

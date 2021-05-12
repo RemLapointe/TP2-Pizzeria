@@ -1,0 +1,107 @@
+[
+    {
+        "numero": "1",
+        "taille": {
+            "nom": "M",
+            "diametre": 20,
+            "facteur": 2
+        },
+        "croute": {
+            "nom": "S\u00e9same",
+            "poids": 2,
+            "type": "epaisse",
+            "prix": 4
+        },
+        "fromages": [
+            {
+                "nom": "Mozzarela",
+                "poids": 2,
+                "prix": 5
+            }
+        ],
+        "garnitures": [
+            {
+                "nom": "tomates",
+                "poids": 2,
+                "prix": 4
+            }
+        ],
+        "tempsCuisson": "14",
+        "prixComplet": 13
+    },
+    {
+        "numero": "2",
+        "taille": {
+            "nom": "P",
+            "diametre": 12,
+            "facteur": 1
+        },
+        "croute": {
+            "nom": "S\u00e9same",
+            "poids": 2,
+            "type": "epaisse",
+            "prix": 4
+        },
+        "fromages": [
+            {
+                "nom": "Mozzarela",
+                "poids": 2,
+                "prix": 5
+            },
+            {
+                "nom": "Mozzarela",
+                "poids": 2,
+                "prix": 5
+            }
+        ],
+        "garnitures": [
+            {
+                "nom": "tomates",
+                "poids": 2,
+                "prix": 4
+            },
+            {
+                "nom": "tomates",
+                "poids": 2,
+                "prix": 4
+            }
+        ],
+        "tempsCuisson": "11",
+        "prixComplet": 22
+    },
+    {
+        "numero": "3",
+        "taille": {
+            "nom": "G",
+            "diametre": 30,
+            "facteur": 3
+        },
+        "croute": {
+            "nom": "Farci",
+            "poids": 3,
+            "type": "epaisse",
+            "prix": 4
+        },
+        "fromages": [
+            {
+                "nom": "Grec",
+                "poids": 3,
+                "prix": 6
+            },
+            {
+                "nom": "Mozzarela",
+                "poids": 2,
+                "prix": 5
+            }
+        ],
+        "garnitures": [
+            {
+                "nom": "saucisses",
+                "poids": 2,
+                "prix": 4
+            }
+        ],
+        "tempsCuisson": "15",
+        "prixComplet": 19
+    }
+]

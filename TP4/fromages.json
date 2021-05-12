@@ -1,0 +1,12 @@
+[
+    {
+        "nom": "Mozzarela",
+        "poids": 2,
+        "prix": 5
+    },
+    {
+        "nom": "Grec",
+        "poids": 3,
+        "prix": 6
+    }
+]
